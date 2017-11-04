@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xml:base="db.properties"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--导入文件-->
+ <bean  id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+               <property name="user" value="${user}"></property>
+               <property name="password" value="123456"></property>
+               <property name="jdbcUrl" value=""></property>
+ </bean>
+
+</beans>

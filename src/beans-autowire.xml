@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="address" class="com.test.autowire.Adress" >
+         <property name="addr" value="陕西"></property>
+         <property name="city" value="xian"></property>
+    </bean>
+   <bean id="car" class="com.test.autowire.Car">
+        <property name="brank" value="aodi"></property>
+        <property name="price" value="3000000"></property>
+   </bean>
+    <!--autowire="byName"属性指定自动装配的方式byName 根据bean的名字和当前bean的setter风格的属性名字进行自动装配 -->
+    <!--autowire="byType"根据bean的类型和当前bean的属性的类型进行自动装配 假如可以有多个类型的可以匹配就会报错-->
+    <bean id="person" class="com.test.autowire.Person" autowire="byType">
+      <property name="name" value="Tom"></property>
+      <!--<property name="adress" ref="address"></property>-->
+      <!--<property name="car" ref="car"></property>-->
+  </bean>
+</beans>

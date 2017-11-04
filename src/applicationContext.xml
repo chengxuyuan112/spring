@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+     <!-- 配置bean-->
+    <bean id="helloword" class="com.test.beans.HelloWord">
+         <property name="name" value="Spring"></property>
+    </bean>
+     <bean id="A" class="com.test.beans.A">
+         <property name="name" value="This is A"></property>
+     </bean>
+
+    <bean id="B" class="com.test.beans.B">
+        <property name="name" value="this is B"></property>
+    </bean>
+
+    <bean id="car" class="com.test.beans.Car">
+        <constructor-arg value="aaa" index="0" type="java.lang.String"></constructor-arg>
+        <constructor-arg value="300000" index="1" ></constructor-arg>
+    </bean>
+    <bean id="person" class="com.test.beans.Person">
+          <property name="name" value="Tom"></property>
+        <!-- 创建bean直接的引用关系-->
+         <!--<property name="car" ref="car"></property>-->
+
+        <!--内部bean -->
+         <property name="car">
+             <bean class="com.test.beans.Car">
+                 <constructor-arg value="bbbb"></constructor-arg>
+                 <constructor-arg value="1111111"></constructor-arg>
+             </bean>
+         </property>
+    </bean>
+   <bean id="person3" class="com.test.beans.Person">
+      <property name="name" value="TOM"></property>
+       <property name="cars">
+           <!--使用list节点可以为list属性赋值 -->
+           <list>
+               <ref bean="car"></ref>
+               <ref bean="car"></ref>
+               <ref bean="car"></ref>
+           </list>
+       </property>
+   </bean>
+
+    <!--配置map属性值 -->
+
+    <bean id="person4" class="com.test.beans.Person2">
+               <property name="name" value="tom"></property>
+                 <property name="cars">
+                     <map>
+                           <entry key="AAA" value-ref="car"></entry>
+                           <entry key="BBB" value-ref="car"></entry>
+                     </map>
+
+                 </property>
+
+    </bean>
+
+    <bean id="datasource" class="com.test.beans.DataSouce">
+              <property name="properties">
+                      <props>
+                          <prop key="user">root</prop>
+                          <prop key="password">123456</prop>
+                          <prop key="jdbcurl">jdbc:url.//test</prop>
+                      </props>
+
+              </property>
+
+    </bean>
+  <beans>
+      <bean id="person6" class="com.test.beans.Person" p:></bean>
+  </beans>
+</beans>

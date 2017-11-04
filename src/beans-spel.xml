@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="address" class="com.test.spel.Adress">
+       <!--使用spel为属赋一个字面值 -->
+       <property name="city" value="#{'beijing'}"></property>
+       <property name="addr" value="sanqiao"></property>
+   </bean>
+  <bean id="car"  class="com.test.spel.Car">
+       <property name="brank" value="aoti"></property>
+        <property name="price" value="500000"></property>
+  </bean>
+    <bean id="person" class="com.test.spel.Person">
+        <!--使用spel来引用其他的bean -->
+         <property name="car" value="#{car}"></property>
+        <!--使用sepl来引用其他的bean的 bean的属性 -->
+         <property name="adress" value="#{address.city }"></property>
+        <!--在sepl中使用运算符 -->
+        <property name="info" value="#{car.price>30000?'金领':'白领'}"></property>
+        <property name="name" value="Tom"></property>
+    </bean>
+</beans>
