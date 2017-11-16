@@ -12,5 +12,8 @@ public class Main {
           System.out.println(person.getName());
           System.out.println(person.getAdress().getCity());
           System.out.println(person.getCar().getBrank());
+
+
+
     }
 }

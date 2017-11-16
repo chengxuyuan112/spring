@@ -69,6 +69,6 @@
 
     </bean>
   <beans>
-      <bean id="person6" class="com.test.beans.Person" p:></bean>
+      <bean id="person6" class="com.test.beans.Person" ></bean>
   </beans>
 </beans>
